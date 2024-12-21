@@ -1,0 +1,64 @@
+{% load bootstrap3 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href='{% static "style6.css" %}'>
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body style="background-color: #b2f0e8;">
+    <!-- Статистическая навигационная панель -->
+    <nav class="navbar navbar-default navbar-static-top" style="background-color: #8de5db; position: sticky;"
+         >
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                </button>
+                <a class="navbar-brand" href="{% url 'base' %}">Главная страница</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'about' %}">Обо мне</a></li>
+                    <li><a href="{% url 'contacts' %}">Контакты</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="page-header">
+            {% block header %}
+                <div class="jumbotron" style="background-color: #8de5db;">
+                    <h3 class="text-muted" style="color:#990099"><em>
+                        <p>Биляева Татьяна Владимировна</p>
+                        <p>педагог - психолог, нейропсихолог</p>
+                    </em></h3>
+                </div>
+            {% endblock header %}
+        </div>
+        <div>
+            {% block content %}
+            <h4><cite style="color:#990099">{{ header }}</cite></h4>
+            <hr class="border border-danger border-2 opacity-50">
+            <img src='{% static "myphoto33.jpg" %}' class="img-circle img-fluid" alt="Circular Image"
+                 style="width: 500px; height: 500px;" align="right">
+            <h3 style="color:#117C6F; line-height:1,5;"><q><em>
+                Если учитель имеет только Любовь к делу, он будет хороший учитель.<br><br>
+                Если учитель имеет только Любовь к ученику, как отец, мать, он будет лучше того учителя, который прочёл все книги, но не имеет любви ни к делу, ни к ученикам.<br><br>
+                Если учитель соединяет в себе Любовь к делу и ученикам, он – совершенный Учитель
+            </em></q></h3><br>
+            <h4 style="color:#117C6F">Лев Николаевич Толстой</h4>
+            {% endblock content %}
+        </div>
+    </div>
+
+</body>
+</html>
